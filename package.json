@@ -24,18 +24,18 @@
   ],
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-img": "^5.0.0",
+    "@11ty/eleventy-img": "^6.0.1",
     "autoprefixer": "^10.3.1",
     "chalk": "^4.0.0",
     "cross-env": "^7.0.3",
     "eleventy-plugin-metagen": "^1.8.3",
-    "esbuild": "^0.20.2",
+    "esbuild": "^0.25.0",
     "esbuild-sass-plugin": "^3.2.0",
     "js-beautify": "^1.15.0",
     "markdown-it": "^14.1.0",
     "npm-run-all": "^2.1.0",
     "postcss": "^8.1.0",
-    "stylelint": "^14.0.1",
-    "stylelint-config-standard": "^23.0.0"
+    "stylelint": "^16.15.0",
+    "stylelint-config-standard": "^37.0.0"
   }
 }
