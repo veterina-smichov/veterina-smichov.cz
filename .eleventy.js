@@ -1,4 +1,4 @@
-const siteName = "ZeroPoint";
+const siteName = "veterina-smichov.cz";
 
 /**
  * Wait! Before you edit this file!

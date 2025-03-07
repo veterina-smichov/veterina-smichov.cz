@@ -1,5 +1,5 @@
 {
-  "name": "ZeroPoint",
+  "name": "veterina-smichov.cz",
   "version": "1.0.2",
   "description": "",
   "type": "module",
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+project_urlname"
   },
-  "author": "MWDelaney",
+  "author": "veterina-smichov",
   "license": "MIT",
   "browserslist": [
     "last 2 versions"
