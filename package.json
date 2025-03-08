@@ -26,7 +26,7 @@
     "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-img": "^6.0.1",
     "autoprefixer": "^10.3.1",
-    "chalk": "^4.0.0",
+    "chalk": "^5.4.1",
     "cross-env": "^7.0.3",
     "eleventy-plugin-metagen": "^1.8.3",
     "esbuild": "^0.25.0",
