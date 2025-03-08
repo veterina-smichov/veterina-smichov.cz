@@ -1,6 +1,6 @@
 {
   "name": "veterina-smichov.cz",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "type": "module",
   "main": "index.html",
@@ -34,7 +34,7 @@
     "js-beautify": "^1.15.0",
     "luxon": "^3.5.0",
     "markdown-it": "^14.1.0",
-    "npm-run-all": "^2.1.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.1.0",
     "stylelint": "^16.15.0",
     "stylelint-config-standard": "^37.0.0"
