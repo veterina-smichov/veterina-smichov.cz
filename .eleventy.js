@@ -1,4 +1,4 @@
-const siteName = "veterina-smichov.cz";
+const siteName = 'veterina-smichov.cz';
 
 /**
  * Wait! Before you edit this file!
@@ -70,142 +70,142 @@ import chalk from 'chalk';
  */
 export default function(eleventyConfig) {
 
-  // An array of the tasks to be run, in order, with an icon and a pretty name for each
-  // Put the tasks in the order you want them to run, and set echo to false if you don't want to log the task to the console
-  let tasks = [
-    {
-      icon: "📚",
-      name: "Collections",
-      config: collections,
-      echo: true,
-    },
-    {
-      icon: "🔌",
-      name: "Plugins",
-      config: plugins,
-      echo: true,
-    },
-    {
-      icon: "⏩",
-      name: "Shortcodes",
-      config: shortcodes,
-      echo: true,
-    },
-    {
-      icon: "🎛️ ",
-      name: "Filters",
-      config: filters,
-      echo: true,
-    },
-    {
-      icon: "🚗",
-      name: "Transforms",
-      config: transforms,
-      echo: true,
-    },
-    {
-      icon: "📂",
-      name: "Passthroughs",
-      config: passthroughs,
-      echo: false,
-    },
-    {
-      icon: "📜",
-      name: "Template Languages",
-      config: templatelanguages,
-      echo: false,
-    },
-    {
-      icon: "👀",
-      name: "Watch Targets",
-      config: watchtargets,
-      echo: false,
+    // An array of the tasks to be run, in order, with an icon and a pretty name for each
+    // Put the tasks in the order you want them to run, and set echo to false if you don't want to log the task to the console
+    let tasks = [
+        {
+            icon: '📚',
+            name: 'Collections',
+            config: collections,
+            echo: true,
+        },
+        {
+            icon: '🔌',
+            name: 'Plugins',
+            config: plugins,
+            echo: true,
+        },
+        {
+            icon: '⏩',
+            name: 'Shortcodes',
+            config: shortcodes,
+            echo: true,
+        },
+        {
+            icon: '🎛️ ',
+            name: 'Filters',
+            config: filters,
+            echo: true,
+        },
+        {
+            icon: '🚗',
+            name: 'Transforms',
+            config: transforms,
+            echo: true,
+        },
+        {
+            icon: '📂',
+            name: 'Passthroughs',
+            config: passthroughs,
+            echo: false,
+        },
+        {
+            icon: '📜',
+            name: 'Template Languages',
+            config: templatelanguages,
+            echo: false,
+        },
+        {
+            icon: '👀',
+            name: 'Watch Targets',
+            config: watchtargets,
+            echo: false,
+        }
+    ];
+
+    /**
+     * Start pretty console output
+     */
+    console.group('\n', '   🪐', chalk.magenta(siteName));
+    console.log(chalk.white('  │'));
+
+    for (let task of tasks) {
+        let tree = tasks.indexOf(task) === tasks.length - 1;
+
+        // If the next tasks's echo is false, don't log the tree
+        tree = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
+
+        if(task.echo) {
+            console.group(
+                chalk.white((tree)  ? '  └── ' : '  ├── ') +
+                chalk.yellow(task.icon) +
+                chalk.yellow(' ' + task.name) +
+                chalk.gray(' (/src/config/' + task.name.toLowerCase().replace(/\s/g, '') + '.js)')
+            );
+        }
+
+        Object.keys(task.config).forEach((taskName, index) => {
+            let len = Object.keys(task.config).length - 1;
+            let pre = (index === len ? '└── ' : '├── ');
+
+            let branch = tasks.indexOf(task) === tasks.length - 1;
+            branch = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
+            if(task.echo) {
+                console.log(
+                    chalk.white((branch) ? '       ' : '│      ') + pre +
+                    chalk.green(taskName)
+                );
+            }
+
+            // Run the task
+            task.config[taskName](eleventyConfig);
+        });
+
+        if(task.echo) {
+            if(!tree) {
+                console.log(chalk.white('│'));
+            }
+            console.groupEnd();
+        }
     }
-  ];
 
-  /**
-   * Start pretty console output
-   */
-  console.group("\n", "   🪐", chalk.magenta(siteName));
-  console.log(chalk.white("  │"));
+    console.log('\n');
+    console.groupEnd();
+    /**
+     * End pretty console output
+     */
 
-  for (let task of tasks) {
-    let tree = tasks.indexOf(task) === tasks.length - 1;
 
-    // If the next tasks's echo is false, don't log the tree
-    tree = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
+    /**
+     * Add build configuration from /src/config/build.js
+     */
+    build(eleventyConfig);
 
-    if(task.echo) {
-      console.group(
-        chalk.white((tree)  ? "  └── " : "  ├── ") +
-        chalk.yellow(task.icon) +
-        chalk.yellow(" " + task.name) +
-        chalk.gray(" (/src/config/" + task.name.toLowerCase().replace(/\s/g, '') + ".js)")
-      );
-    }
 
-    Object.keys(task.config).forEach((taskName, index) => {
-      let len = Object.keys(task.config).length - 1;
-      let pre = (index === len ? "└── " : "├── ");
-
-      let branch = tasks.indexOf(task) === tasks.length - 1;
-      branch = (tasks[tasks.indexOf(task) + 1] && !tasks[tasks.indexOf(task) + 1].echo);
-      if(task.echo) {
-        console.log(
-          chalk.white((branch) ? "       " : "│      ") + pre +
-          chalk.green(taskName)
-        );
-      }
-
-      // Run the task
-      task.config[taskName](eleventyConfig);
+    /**
+     * Configure dev server
+     * https://www.11ty.dev/docs/watch-serve/#eleventy-dev-server
+     */
+    eleventyConfig.setServerOptions({
+        showAllHosts: true,
     });
 
-    if(task.echo) {
-      if(!tree) {
-        console.log(chalk.white("│"));
-      }
-      console.groupEnd();
-    }
-  }
+    /**
+     * Enable quiet mode
+     */
+    eleventyConfig.setQuietMode(true);
 
-  console.log("\n");
-  console.groupEnd();
-  /**
-   * End pretty console output
-   */
-
-
-  /**
-   * Add build configuration from /src/config/build.js
-   */
-  build(eleventyConfig);
-
-
-  /**
-  * Configure dev server
-  * https://www.11ty.dev/docs/watch-serve/#eleventy-dev-server
-  */
-  eleventyConfig.setServerOptions({
-    showAllHosts: true,
-  });
-
-  /**
-   * Enable quiet mode
-   */
-  eleventyConfig.setQuietMode(true);
-
-  /**
-   * Return the config to Eleventy
-   */
-  return {
-    dir: {
-      input: 'src',
-      output: 'public',
-      includes: 'assets/views',
-      layouts: 'assets/views/layouts',
-      data: 'data',
-    },
-    templateFormats: ['njk', 'md', '11ty.js'],
-  };
+    /**
+     * Return the config to Eleventy
+     */
+    return {
+        dir: {
+            input: 'src',
+            output: 'public',
+            includes: 'assets/views',
+            layouts: 'assets/views/layouts',
+            data: 'data',
+        },
+        templateFormats: ['njk', 'md', '11ty.js'],
+    };
 }
