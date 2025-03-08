@@ -200,8 +200,8 @@ export default function(eleventyConfig) {
    */
   return {
     dir: {
-      input: "src",
-      output: "public",
+      input: 'src',
+      output: 'public',
       includes: 'assets/views',
       layouts: 'assets/views/layouts',
       data: 'data',
