@@ -6,7 +6,7 @@ export default async function (config) {
     config.on("afterBuild", () => {
         return esbuild.build({
             entryPoints: ["src/assets/styles/styles.scss", "src/assets/scripts/main.js"],
-            outdir: "public/assets",
+            outdir: "_site/assets",
             bundle: true,
             minify: process.env.ELEVENTY_ENV === "production",
             sourcemap: process.env.ELEVENTY_ENV !== "production",

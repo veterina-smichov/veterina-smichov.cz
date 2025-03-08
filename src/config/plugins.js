@@ -23,7 +23,7 @@ export default {
     image: async function (eleventyConfig) {
         // Add plugin to eleventyConfig
         eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-            outputDir: "./public/assets/images", urlPath: "/assets/images/", extensions: "html", formats: ["auto"],
+            outputDir: "./_site/assets/images", urlPath: "/assets/images/", extensions: "html", formats: ["auto"],
 
             // Attributes assigned on <img> override these values.
             defaultAttributes: {
