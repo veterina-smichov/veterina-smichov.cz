@@ -38,9 +38,9 @@ export default config => {
     build(config)
 
     // Configure dev server
-    config.setServerOptions({
-        showAllHosts: true,
-    })
+    // config.setServerOptions({
+    //     showAllHosts: true,
+    // })
 
     // config.addCollection("debugConfig", (collection) => {
     //     console.log("Directory data:", collection.getAll().map(item => ({
