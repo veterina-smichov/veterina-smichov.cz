@@ -1,5 +1,5 @@
 {
   "layout": "base.njk",
   "permalink": "/{{ title | slugify }}/",
-  "templateEngineOverride": "njk, md"
+  "tags": "pages"
 }

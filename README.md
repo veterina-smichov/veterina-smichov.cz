@@ -18,14 +18,6 @@ Create your site's main content! Pages can be written in HTML or [Markdown](http
 * [Edit the homepage](https://github.com/veterina-smichov/veterina-smichov.cz/edit/main/src/content/pages/index.md)
 * [Create a new page](https://github.com/veterina-smichov/veterina-smichov.cz/new/main/?filename=/src/content/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
 
-<!--
-
----
-#### Posts
-Blog posts
-* [Create a new post](https://github.com/veterina-smichov/veterina-smichov.cz/new/main/?filename=/src/content/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
-
--->
 </details>
 
 <details>
@@ -48,7 +40,7 @@ Colors, spacing, and fonts, oh my! You can edit your branding and styles here us
 
 Learning CSS can be daunting but there are a ton of useful resources on the web. Check out [SmolCSS](https://smolcss.dev) to get started!
 
-### Javascript
+### JavaScript
 
 **Optional!** Add javascript functionality to your site
 
@@ -73,16 +65,6 @@ Once you set up deployment, any time you commit to your repository's `main` bran
 
 </details>
 
-<details>
-  <summary><strong>Deploy to Netlify</strong></summary>
-
-### Setup:
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/veterina-smichov/veterina-smichov.cz/)
-
-
-</details>
-
 </details>
 
 ---
@@ -92,35 +74,35 @@ Once you set up deployment, any time you commit to your repository's `main` bran
 Ready to go deeper? Here's how veterina-smichov.cz is laid out:
 
 ```sh
-example.com                 # → Root of your project
-├── src/                    # → Source directory
-│   ├── assets/             # → Site assets
-│   │   ├── fonts/
+example.com                  # Root of your project
+├── config/                  # Eleventy configuration
+│   ├── build.js             # JavaScript and CSS build and bundler configuration 
+│   ├── collections.js       # Add and configure collections (https://www.11ty.dev/docs/collections/)
+│   ├── filters.js           # Add and configure filters (https://www.11ty.dev/docs/filters/)
+│   ├── passthroughs.js      # Add and configure passthroughs (https://www.11ty.dev/docs/copy/)
+│   ├── plugins.js           # Add and configure plugins (https://www.11ty.dev/docs/plugins/)
+│   ├── shortcodes.js        # Add and configure shortcodes (https://www.11ty.dev/docs/shortcodes/)
+│   ├── templateLanguages.js # Configure custom template languages (https://www.11ty.dev/docs/languages/custom/)
+│   ├── watchtargets.js      # Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
+│   └── logger.json          # Logger for Eleventy build process
+├── src/                     # Source directory
+│   ├── assets/              # Site assets
 │   │   ├── images/
 │   │   ├── scripts/
 │   │   ├── styles/
-│   │   ├── views/
-│   │   │   └── layouts/
-│   │   │   └── partials/
-│   │   └── assets.json     # → Shared attributes for files in the assets directory
-│   ├── config/             # → Eleventy configuration
-│   │   ├── build.js        # → Javascript and CSS build and bundler configuration 
-│   │   ├── collections.js  # → Add and configure collections (https://www.11ty.dev/docs/collections/)
-│   │   ├── filters.js      # → Add and configure filters (https://www.11ty.dev/docs/filters/)
-│   │   ├── passthroughs.js # → Add and configure passthroughs (https://www.11ty.dev/docs/copy/)
-│   │   ├── plugins.js      # → Add and configure plugins (https://www.11ty.dev/docs/plugins/)
-│   │   ├── shortcodes.js   # → Add and configure shortcodes (https://www.11ty.dev/docs/shortcodes/)
-│   │   ├── templateLanguages.js   # → Configure custom template languages (https://www.11ty.dev/docs/languages/custom/)
-│   │   ├── watchtargets.js # → Add and configure watch targets (https://www.11ty.dev/docs/watch-serve/)
-│   │   └── config.json     # → Shared attributes for files in the config directory
-│   ├── content             # → A nice, organized, recommended place for all site content
-│   │   └── pages           # → Add "pages" collection items here
-│   └── data                # → Customize site data (https://www.11ty.dev/docs/data/)
-│       ├── navigation.json # → Site navigation configuration
-│       └── site.json       # → Site branding configuration
-├── .eleventy.js            # → Core Eleventy config file
-├── netlify.toml            # → Netlify deployment and plugin configuration (optional)
-├── README.veterina-smichov.cz.md     # → Template repository readme
+│   │   └── config.json      # Shared attributes for files in the directory
+│   ├── assets-static/       # Site assets that are not processedall site content
+│   │   ├── admin/           # Decap CMS files folder
+│   │   ├── fonts/ 
+│   │   └── config.json      # Shared attributes for files in the directory
+│   ├── content              # A nice, organized, recommended place for all site content
+│   │   ├── articles         # Add "articles" collection items here
+│   │   └── pages            # Add "pages" collection items here
+│   ├── data                 # Customize site data (https://www.11ty.dev/docs/data/)
+│   │   └── navigation.json  # Site navigation configuration
+│   ├── includes/            # Partial templates to be used by layouts
+    └── layouts/             # Layouts to be used by 11ty
+├── .eleventy.js             # Core Eleventy config file
 └── README.md
 ```
 

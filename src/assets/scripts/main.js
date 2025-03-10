@@ -1,2 +1,2 @@
-// Javascript goes here
-console.log('up to zero!');
+// JavaScript goes here
+console.log('up to zero!')

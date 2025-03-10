@@ -1,10 +1,10 @@
 export default [
     {
-        from: "/index/",
-        to: "/"
+        from: '/index/',
+        to: '/'
     },
     {
-        from: "/contacts/",
-        to: "/contact/"
+        from: '/contacts/',
+        to: '/contact/'
     },
 ]
